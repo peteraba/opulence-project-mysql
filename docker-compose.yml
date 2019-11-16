@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_PASSWORD=2^J9rqrKWgKBfRvC
+      - POSTGRES_USER=opulence
+      - POSTGRES_DB=opulence
+    ports:
+      - "5432:5432"
+
+  php:
+    image: abtercms/php:latest
+    environment:
+      - DB_DRIVER=Opulence\Databases\Adapters\Pdo\PostgreSql\Driver
+      - DB_HOST=db
+      - DB_USER=opulence
+      - DB_PASSWORD=2^J9rqrKWgKBfRvC
+      - DB_NAME=opulence
+      - DB_PORT=5432
+    links:
+      - db
+    volumes:
+      - .:/website
+    working_dir: /website
+    command: php -S 0.0.0.0:8050 localhost_router.php
+    ports:
+      - "8050:8050"

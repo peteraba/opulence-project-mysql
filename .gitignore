@@ -1,0 +1,10 @@
+.idea
+.php_cs.cache
+composer.phar
+nbproject/
+phpunit.phar
+vendor/
+.env.*.php
+!config/environment/.env.example.phptmp
+
+tmp
