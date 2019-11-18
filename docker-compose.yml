@@ -1,23 +1,24 @@
 version: '3'
 services:
   db:
-    image: postgres:alpine
+    image: mysql
     environment:
-      - POSTGRES_PASSWORD=2^J9rqrKWgKBfRvC
-      - POSTGRES_USER=opulence
-      - POSTGRES_DB=opulence
+      - MYSQL_ROOT_PASSWORD=2^J9rqrKWgKBfRvC
+      - MYSQL_DATABASE=opulence
+      - MYSQL_PASSWORD=2^J9rqrKWgKBfRvC
+      - MYSQL_USER=opulence
     ports:
-      - "5432:5432"
+      - "3305:3306"
 
   php:
     image: abtercms/php:latest
     environment:
-      - DB_DRIVER=Opulence\Databases\Adapters\Pdo\PostgreSql\Driver
+      - DB_DRIVER=Opulence\Databases\Adapters\Pdo\MySql\Driver
       - DB_HOST=db
       - DB_USER=opulence
       - DB_PASSWORD=2^J9rqrKWgKBfRvC
       - DB_NAME=opulence
-      - DB_PORT=5432
+      - DB_PORT=3306
     links:
       - db
     volumes:
