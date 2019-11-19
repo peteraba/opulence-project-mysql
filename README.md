@@ -1,6 +1,6 @@
-# opulence-project-postgres
+# opulence-project-mysql
 
-This only serves as a test project for testing [opulence/Opulence](https://github.com/opulencephp/Opulence) changes with PostgreSQL.
+This only serves as a test project for testing [opulence/Opulence](https://github.com/opulencephp/Opulence) changes with MySQL.
 It is based on [opulence/Project](https://github.com/opulencephp/Project), but provides a few (useless) migrations and a docker-compose file.
 
 ### To test [PR #122](https://github.com/opulencephp/Opulence/pull/122) (Primary key for migrations)
